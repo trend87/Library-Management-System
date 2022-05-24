@@ -1,12 +1,8 @@
 <?php
 
 
-// Create connection
-$conn = mysqli_connect('localhost','root','','library');
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+    include 'config.php';
+    
 
 // write query for all books
 $sql = 'SELECT cover, author, title, published FROM books ORDER BY published';
@@ -33,7 +29,7 @@ print_r($books);
     ?>
 <div class="container">
 <div class="row">
-        <?php foreach($books as $book) { ?>
+        <?php foreach($books as $book):  ?>
             <div class="card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
@@ -43,7 +39,7 @@ print_r($books);
                 
                 <a href="#" class="btn btn-primary">View more</a>
             
-                <?php } ?>
+                <?php endforeach; ?>
             </div>
             </div>
 
