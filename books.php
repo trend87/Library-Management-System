@@ -19,7 +19,7 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // close connection
 // mysqli_close($conn);
 
-print_r($books);
+// print_r($books);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,20 +30,18 @@ print_r($books);
 <div class="container">
 <div class="row">
         <?php foreach($books as $book):  ?>
-            <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"><?php echo htmlspecialchars($book['title']);?></h5>
-                <p class="card-text"><?php echo htmlspecialchars($book['author']);?></p>
-                <p class="card-text"><?php echo htmlspecialchars($book['published']);?></p>
-                
-                <a href="#" class="btn btn-primary">View more</a>
-            
-                <?php endforeach; ?>
-            </div>
-            </div>
+            <div class="card" >
+            <img src="librarysystem.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+             <h4 ><?php echo htmlspecialchars($book['title']);?></h4> 
+             <p ><strong><?php echo htmlspecialchars($book['author']);?></strong></p>
+            <p >Published: <?php echo htmlspecialchars($book['published']);?></p>
+         </div>
+        </div>
 
+                <?php endforeach; ?>
            
+
             
 
             

@@ -4,9 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-libray</title>
     <link rel="stylesheet" href="Boostrap V4/css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
 </head>
-<body style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('librarysystem.jpg');">
+<!-- style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('librarysystem.jpg');" -->
+<body style="background-color:grey;">
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark " >
     

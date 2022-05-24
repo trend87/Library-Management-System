@@ -1,4 +1,7 @@
 <?php
+
+include 'config.php';
+
 $cover = $author = $title = '';
 $errors = array('cover'=>'', 'author'=>'', 'title'=> '');
 
@@ -35,9 +38,19 @@ if(isset($_POST['submit'])){
         // echo "form is valid";
         } else {
             // echo "errors in the form";
-            header("Location: index.php");
+
+            header("Location: books.php");
         }
-    
+        $sql = "INSERT INTO books(cover, author, title)
+        VALUES ('$cover',' $author', '$title')";
+        
+        if (mysqli_query($conn, $sql)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        
+        mysqli_close($conn);
 }
 
 
