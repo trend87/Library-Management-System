@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-libray</title>
     <link rel="stylesheet" href="Boostrap V4/css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <!-- style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('librarysystem.jpg');" -->
 <body style="background-color:grey;">
@@ -24,10 +24,10 @@
                 <a class="nav-link text-white links" href="books.php">Books</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white links" href="#resume">About</a>
+                <a class="nav-link text-white links" href="about.html">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white links" href="#skills">Contact</a>
+                <a class="nav-link text-white links" href="contact.html">Contact</a>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link text-white" href="#contact"> Contact</a>

@@ -2,55 +2,71 @@
 
 include 'config.php';
 
-$cover = $author = $title = '';
-$errors = array('cover'=>'', 'author'=>'', 'title'=> '');
+$content = $author = $title = $cover = '';
+$errors = array('cover'=>'','author'=>'','title'=> '','content'=> '');
 
 if(isset($_POST['submit'])){
-    if(empty($_POST['cover'])){
-        $errors ['cover'] =  "A book cover is required <br>";
-    }else{
-        $cover = $_POST['cover'];
-        if(!preg_match('/^[a-zA-Z\s]+$/', $cover)){
-          $errors ['cover'] = "Cover must be typed in letters only";
-        }
-    }
+  $cover=$_FILES['cover']['name'];
+  $tmp_name = $_FILES['cover']['tmp_name'];
+  $destination ="image/".$cover;
+  move_uploaded_file($tmp_name, $destination);
+
+  
+    // if(empty($_POST['cover'])){
+    //     $errors ['cover'] =  "A book cover is required <br>";
+    // }else{
+    //     $cover = $_POST['cover'];
+    //     if(!preg_match('/^[a-zA-Z\s]+$/',$cover)){
+    //       $errors ['cover'] = "Cover must be typed in letters only";
+    //     }
+    // }
     
     // check cover
     if(empty($_POST['author'])){
         $errors ['author'] = "Author name is required <br>";
     }else{
         $author = $_POST['author'];
-        if(!preg_match('/^[a-zA-Z\s]+$/', $author)){
-            $errors ['author'] = "author name must be typed in letters only";
-        }
+        // if(!preg_match('/^[a-zA-Z\s]+$/',$author)){
+        //     $errors ['author'] = "author name must be typed in letters only";
+        // }
     }
+    // check cover
+    if(empty($_POST['content'])){
+      $errors ['content'] = "About book is required <br>";
+      }else{
+      $content = $_POST['content'];
+      // if(!preg_match('/^[a-zA-Z\s]+$/',$content)){
+      //     $errors ['content'] = "about book must be typed in letters only";
+      // }
+  }
     
     // check cover
     if(empty($_POST['title'])){
         $errors ['title'] =  "Book title is required <br>";
     }else{
         $title = $_POST['title'];
-        if(!preg_match('/^[a-zA-Z\s]+$/', $title)){
-            $errors ['title'] = "title must be typed in letters only";
-        }
+        // if(!preg_match('/^[a-zA-Z\s]+$/',$title)){
+        //     $errors ['title'] = "title must be typed in letters only";
+        // }
     }
     if(array_filter($errors)){
         // echo "form is valid";
         } else {
             // echo "errors in the form";
-
+            
             header("Location: books.php");
         }
-        $sql = "INSERT INTO books(cover, author, title)
-        VALUES ('$cover',' $author', '$title')";
+        $sql = "INSERT INTO books (cover, author, title, content)
+        VALUES ('$cover','$author','$title','$content')";
         
-        if (mysqli_query($conn, $sql)) {
+        if (!mysqli_query($conn,$sql)) {
             echo "New record created successfully";
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
         
         mysqli_close($conn);
+        
 }
 
 
@@ -97,32 +113,46 @@ if(isset($_POST['submit'])){
     
           </div>
           <div class="form-container">
-          <form action="add.php" method="post">
+          <form action="add.php" method="post" enctype="multipart/form-data">
              
              <div class="form-group">
                <label >Book Cover</label>
-               <input type="text" class="form-control" name="cover" value="<?php echo htmlspecialchars ($cover)?> ">
+               <input type="file" class="form-control" name="cover">               
                <div class="text-warning ">
                    <?php
                         echo $errors['cover'];
                     ?>
                </div>
              </div>
+             <!--  -->
              <div class="form-group">
                <label >Author</label>
-               <input type="text" class="form-control" name="author" value="<?php echo htmlspecialchars ($author)?> "> 
+               <input type="text" class="form-control" name="author" value="<?php echo htmlspecialchars ($author)?>"required> 
                <div class="text-warning">
                    <?php
                         echo $errors['author'];
                     ?>
                </div>            
             </div>
+            <!--  -->
              <div class="form-group">
                <label >Book Title</label>
-               <input type="text" class="form-control" name="title"value="<?php echo htmlspecialchars ($title)?> " >    
+               <input type="text" class="form-control" name="title"value="<?php echo htmlspecialchars ($title)?>"required>    
                <div class="text-warning">
                    <?php
                         echo $errors['title'];
+                    ?>
+               </div>         
+            </div>
+            <!--  -->
+            <div class="form-group">
+               <label >About Book</label>
+               <!-- <input type="text" class="form-control" name="content"value="<?php //echo htmlspecialchars ($content)?>"required>     -->
+               <textarea class="form-control" name="content" rows="4" cols="50"><?php echo htmlspecialchars ($content)?></textarea>
+  <br>
+               <div class="text-warning">
+                   <?php
+                        echo $errors['content'];
                     ?>
                </div>         
             </div>

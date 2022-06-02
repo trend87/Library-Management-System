@@ -1,14 +1,17 @@
-
+*{
+  box-sizing: border-box;
+}
 .title{
-    font-size: 25px;
-    font-weight: bold;
-    background-color:#ff1361;
-    border-radius: 7px;
-    padding: 2px;
-    border: none;
+  font-size: 25px;
+  font-weight: bold;
+  background-color:#ff1361;
+  border-radius: 7px;
+  padding: 2px;
+  border: none;
+  
 }
 nav{
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .links:hover{
@@ -19,82 +22,84 @@ padding: 3px !important;
 transition: 0.5s;
 }
 .container-fluid{
-    padding: 0 10%;
+  padding: 0 10%;
 }
 
 
 .welcome-message {
-    text-align: center;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    width: 100%;
-    line-height: 2.5;
-  }
-  .welcome-message h2{
-    font-size: 40px;
+  text-align: center;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  width: 100%;
+  line-height: 2.5;
+}
+.welcome-message h2{
+  font-size: 40px;
 }
 .btn:hover{
-    background-color:#ff1361;
-    color:white;
-    border: 1px solid red;
+  background-color: #ff1361 !important;;
+  color:white;
 }
 
 .animate-character
 {
-   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    /* #231557 0%,
-    #44107a 29%, */
-    #ff1361 67%,
-    #fff800 80%,
-    white   100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  /* text-fill-color: transparent; */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 12s linear infinite;
-  display: inline-block;
-      font-size: 190px;
+ text-transform: uppercase;
+background-image: linear-gradient(
+  -225deg,
+  /* #231557 0%,
+  #44107a 29%, */
+  #ff1361 67%,
+  #fff800 80%,
+  white   100%
+);
+background-size: auto auto;
+background-clip: border-box;
+background-size: 200% auto;
+color: #fff;
+background-clip: text;
+/* text-fill-color: transparent; */
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: textclip 12s linear infinite;
+display: inline-block;
+    font-size: 190px;
 }
 
 @keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
+to {
+  background-position: 200% center;
+}
 }
 .form-container{
-  color: white;
-  margin: 7% 20%;
+color: white;
+margin: 7% 20%;
 }
 /* Style for book */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
- /* width: 20%; */
-  /* height: 350px; */
-  margin: 2px;
-  margin-top: 20px;
+#card-box {
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+transition: all .2s ease-in-out;
+/* width: 20%; */
+/* height: 350px; */
+margin: 2px;
+margin-top: 20px;
+
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  transform: rotate(5deg);
-  transition: transform 1.5s;
-  
+#card-box:hover {
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+/* transition: all .2s ease-in-out; */
+transform: scale(1.1); 
 }
 
 .container {
-  padding: 2px 16px;
+padding: 2px 16px;
+
 }
 .btn{
 margin: 0!important;
 }
+
+
